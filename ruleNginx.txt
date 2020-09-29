@@ -1,0 +1,18 @@
+# NEED MODULE HTTP SECURE LINK: https://nginx.org/en/docs/http/ngx_http_secure_link_module.html
+
+location ~ ^/ {
+
+    secure_link $arg_st,$arg_e;
+    secure_link_md5 "$secure_link_expires$uri$remote_addr secret";
+
+    if ($secure_link = "") {
+        return 403;
+    }
+
+    if ($secure_link = "0") {
+        return 410;
+    }
+	
+    rewrite ^/(.*)$ /$1 break;
+
+}
