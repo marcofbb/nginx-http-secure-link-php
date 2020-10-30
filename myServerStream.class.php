@@ -36,6 +36,14 @@ class myServerStream {
 		return $path.'?st='.$hash.'&e='.$expire;
 	}
 	
+	public static function apply_security($url){
+		$data_link = parse_url($url);
+		$path = myServerStream::get_path($data_link['path']);
+		$url = $data_link['scheme'].'://'.$data_link['host'].$path;
+		return $url;
+	}
+	
 }
 
-echo 'https://myServerStream.com/' . myServerStream::get_path('/video.mp4');
+$my_video = 'https://myServerStream.com/video.mp4'
+echo myServerStream::apply_security($my_video);
