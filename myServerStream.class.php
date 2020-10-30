@@ -45,5 +45,5 @@ class myServerStream {
 	
 }
 
-$my_video = 'https://myServerStream.com/video.mp4'
+$my_video = 'https://myServerStream.com/video.mp4';
 echo myServerStream::apply_security($my_video);
