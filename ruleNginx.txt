@@ -1,5 +1,8 @@
 # NEED MODULE HTTP SECURE LINK: https://nginx.org/en/docs/http/ngx_http_secure_link_module.html
 
+# En caso de utilizar cache, borrar los query (parametros GET) de la key de cache para que el cache sea correcto.
+# In case of using cache, delete the query (GET parameters) of the cache key so that the cache is correct.
+
 location ~ ^/ {
 
     secure_link $arg_st,$arg_e;
